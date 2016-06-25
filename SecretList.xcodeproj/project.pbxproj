@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C991AB11D1E97000028558C /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB01D1E97000028558C /* LoginContract.swift */; };
+		3C991AB31D1E98F90028558C /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB21D1E98F90028558C /* Flow.swift */; };
+		3C991AB51D1E9C8C0028558C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB41D1E9C8C0028558C /* LoginViewModel.swift */; };
 		D6EF81015E247E253D725C79 /* Pods_SecretList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */; };
 		DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */; };
 		DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C991AB01D1E97000028558C /* LoginContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
+		3C991AB21D1E98F90028558C /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		3C991AB41D1E9C8C0028558C /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.debug.xcconfig"; sourceTree = "<group>"; };
 		BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.release.xcconfig"; sourceTree = "<group>"; };
 		DD5A474F1D1E4F5500B5D8E7 /* SecretList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C991AB61D1EAD310028558C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3C991AB01D1E97000028558C /* LoginContract.swift */,
+				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
+				3C991AB41D1E9C8C0028558C /* LoginViewModel.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		757DE099EC1D003CA46D88CA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,15 +123,16 @@
 		DD5A47511D1E4F5500B5D8E7 /* SecretList */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
 				DD5A47721D1E606D00B5D8E7 /* APIManager.swift */,
-				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
-				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
-				DD8B0E181D1E77670017DFB7 /* Item.swift */,
-				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
+				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
 				DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */,
-				DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */,
+				3C991AB21D1E98F90028558C /* Flow.swift */,
 				DD5A475E1D1E4F5500B5D8E7 /* Info.plist */,
+				DD8B0E181D1E77670017DFB7 /* Item.swift */,
+				DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */,
+				3C991AB61D1EAD310028558C /* Login */,
+				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
+				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
 			);
 			path = SecretList;
 			sourceTree = "<group>";
@@ -281,8 +298,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C991AB31D1E98F90028558C /* Flow.swift in Sources */,
 				DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */,
+				3C991AB11D1E97000028558C /* LoginContract.swift in Sources */,
 				DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */,
+				3C991AB51D1E9C8C0028558C /* LoginViewModel.swift in Sources */,
 				DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */,
 				DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */,
 				DD8B0E191D1E77670017DFB7 /* Item.swift in Sources */,

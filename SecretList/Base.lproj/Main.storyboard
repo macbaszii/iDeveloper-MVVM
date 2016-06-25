@@ -32,7 +32,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="fieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="tat-nA-rF1"/>
+                                                    <action selector="usernameTextFieldDidChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="ze6-ia-ej9"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s07-Xo-KX5">
@@ -40,7 +40,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="fieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="iuZ-jR-2Ml"/>
+                                                    <action selector="passwordDidChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="JEp-51-lF1"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -56,7 +56,7 @@
                                         <rect key="frame" x="60" y="95" width="180" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <action selector="login" destination="BYZ-38-t0r" eventType="touchUpInside" id="8QL-dR-tP2"/>
+                                            <action selector="loginButtonDidTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="5gk-0d-G1e"/>
                                         </connections>
                                     </button>
                                 </subviews>
