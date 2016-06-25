@@ -29,7 +29,15 @@ extension LoginViewController {
     }
     
     @IBAction func login() {
-        
+        APIManager.sharedManager.login(with: emailField.text!,
+                                       and: passwordField.text!) { (token, error) in
+                                        
+                                        if let error = error {
+                                            self.showAlertWithError(error)
+                                        } else {
+                                            // TODO: Navigate to Next Screen
+                                        }
+        }
     }
     
     // MARK: - Internal Methods
@@ -46,6 +54,13 @@ extension LoginViewController {
     
     private func setupView() {
         enableLoginButton(false)
+    }
+    
+    private func showAlertWithError(error: NSError) {
+        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
 

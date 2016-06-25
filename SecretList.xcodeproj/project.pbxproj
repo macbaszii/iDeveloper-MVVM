@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6EF81015E247E253D725C79 /* Pods_SecretList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */; };
 		DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */; };
 		DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */; };
 		DD5A47581D1E4F5500B5D8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */; };
 		DD5A475A1D1E4F5500B5D8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */; };
 		DD5A475D1D1E4F5500B5D8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */; };
 		DD5A47681D1E4F5500B5D8E7 /* SecretListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */; };
+		DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47721D1E606D00B5D8E7 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.debug.xcconfig"; sourceTree = "<group>"; };
+		BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.release.xcconfig"; sourceTree = "<group>"; };
 		DD5A474F1D1E4F5500B5D8E7 /* SecretList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		DD5A47631D1E4F5500B5D8E7 /* SecretListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretListTests.swift; sourceTree = "<group>"; };
 		DD5A47691D1E4F5500B5D8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD5A47721D1E606D00B5D8E7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EF81015E247E253D725C79 /* Pods_SecretList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +63,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		757DE099EC1D003CA46D88CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */,
+				BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F4A050CD873CF9CDD219FF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD5A47461D1E4F5500B5D8E7 = {
 			isa = PBXGroup;
 			children = (
 				DD5A47511D1E4F5500B5D8E7 /* SecretList */,
 				DD5A47661D1E4F5500B5D8E7 /* SecretListTests */,
 				DD5A47501D1E4F5500B5D8E7 /* Products */,
+				757DE099EC1D003CA46D88CA /* Pods */,
+				9F4A050CD873CF9CDD219FF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
+				DD5A47721D1E606D00B5D8E7 /* APIManager.swift */,
 				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
 				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
 				DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */,
@@ -103,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD5A476C1D1E4F5500B5D8E7 /* Build configuration list for PBXNativeTarget "SecretList" */;
 			buildPhases = (
+				9E96C6E3CB69BE3E043DDC7F /* 📦 Check Pods Manifest.lock */,
 				DD5A474B1D1E4F5500B5D8E7 /* Sources */,
 				DD5A474C1D1E4F5500B5D8E7 /* Frameworks */,
 				DD5A474D1D1E4F5500B5D8E7 /* Resources */,
+				62F42C04CA8CF0DFED0D331F /* 📦 Embed Pods Frameworks */,
+				9B94215FA365C4E6D0BCB15F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +222,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		62F42C04CA8CF0DFED0D331F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretList/Pods-SecretList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B94215FA365C4E6D0BCB15F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretList/Pods-SecretList-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E96C6E3CB69BE3E043DDC7F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD5A474B1D1E4F5500B5D8E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,6 +277,7 @@
 			files = (
 				DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */,
 				DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */,
+				DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +406,7 @@
 		};
 		DD5A476D1D1E4F5500B5D8E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SecretList/Info.plist;
@@ -338,6 +418,7 @@
 		};
 		DD5A476E1D1E4F5500B5D8E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SecretList/Info.plist;
@@ -390,6 +471,7 @@
 				DD5A476E1D1E4F5500B5D8E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DD5A476F1D1E4F5500B5D8E7 /* Build configuration list for PBXNativeTarget "SecretListTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +480,7 @@
 				DD5A47711D1E4F5500B5D8E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
