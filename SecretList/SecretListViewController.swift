@@ -10,93 +10,69 @@ import UIKit
 
 private let ItemCellIdentifier = "ItemCell"
 
-class SecretListViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
-    
-    var items = [Item]()
-    
+class SecretListViewController : UIViewController {
+
+  @IBOutlet var tableView: UITableView!
+
+  let addNewItemDidTap = Flow<String>()
+
+  var viewModel: SecretListViewModelType!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    viewModel = SecretListViewModel(view: self)
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        fetchItems { 
-            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-        }
+      super.viewDidLoad()
+
+      viewModel.items.subscribe { [unowned self] _ in
+        self.tableView.reloadData()
+      }
+
+      viewModel.title.subscribeWithCache { [unowned self] title in
+        self.title = title
+      }
     }
-    
-    // MARK: - Actions
-    @IBAction func addNewItem() {
-        showAddNewItemAlert()
-    }
+  }
+
 }
 
-// MARK: - UITableView Protocol Conformance
-extension SecretListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(ItemCellIdentifier, forIndexPath: indexPath)
-        
-        let item = items[indexPath.row]
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .ShortStyle
-        
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(item.createdAt!)
-        
-        return cell
-    }
+extension SecretListViewController : UITableViewDelegate, UITableViewDataSource {
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.itemCount()
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    guard let item = viewModel.itemAt(indexPath.row) else { return UITableViewCell() }
+
+    let cell = tableView.dequeueReusableCellWithIdentifier(ItemCellIdentifier, forIndexPath: indexPath)
+    cell.textLabel?.text = item.title
+    cell.detailTextLabel?.text = viewModel.stringFrom(item.createdAt)
+    return cell
+  }
+
 }
 
 extension SecretListViewController {
-    // MARK: - Internal Methods
-    
-    private func showAddNewItemAlert() {
-        let alert = UIAlertController(title: "Add New Item", message: "What are you gonna do ?", preferredStyle: .Alert)
-        
-        alert.addTextFieldWithConfigurationHandler { (textField) in
-            textField.placeholder = "Title here..."
-        }
-        
-        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) in
-            
-            if let field = alert.textFields?.first {
-                self.addNewItem(with: field.text)
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        
-        presentViewController(alert, animated: true, completion: nil)
+
+  @IBAction func addNewItem() {
+    let alert = UIAlertController(title: "Add New Item", message: "What are you gonna do?", preferredStyle: .Alert)
+    alert.addTextFieldWithConfigurationHandler { textField in
+      textField.placeholder = "Title here..."
     }
-    
-    private func addNewItem(with title: String?) {
-        guard let title = title where title.isEmpty == false else { return }
-        
-        let newItem = Item(title: title, createdAt: NSDate())
-        APIManager.sharedManager.add(item: newItem) { (item, error) in
-            if let error = error {
-                self.showAlert(with: error)
-            } else {
-                self.fetchItems(completion: { 
-                    let latestIndexPath = NSIndexPath(forRow: self.items.count - 1, inSection: 0)
-                    self.tableView.insertRowsAtIndexPaths([latestIndexPath], withRowAnimation: .Automatic)
-                })
-            }
-        }
-    }
-    
-    private func fetchItems(completion completion: () -> ()) {
-        APIManager.sharedManager.allItems { (items, error) in
-            if let error = error {
-                self.showAlert(with: error)
-            } else {
-                self.items = items
-                completion()
-            }
-        }
-    }
+
+    alert.addAction(UIAlertAction(title: "Add", style: .Default) { [unowned self] action in
+      guard let textField = alert.textFields?.first else { return }
+      self.addNewItemDidTap.value = textField.text
+    })
+
+    alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+
+    presentViewController(alert, animated: true, completion: nil)
+  }
+
 }
+
+extension SecretListViewController : SecretListViewType {}
