@@ -10,67 +10,72 @@ import UIKit
 
 private let SecretListSegueIdentifier = "SecretListSegue"
 
-class LoginViewController: UIViewController {
-    @IBOutlet var emailField: UITextField!
-    @IBOutlet var passwordField: UITextField!
-    @IBOutlet var loginButton: UIButton!
+class LoginViewController : UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
+  @IBOutlet var emailField: UITextField!
+  @IBOutlet var passwordField: UITextField!
+  @IBOutlet var loginButton: UIButton!
+  @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
+
+  let username = Flow<String>()
+  let password = Flow<String>()
+  let loginDidTap = Flow<Void>()
+
+  var viewModel: LoginViewModelType!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setUp()
+  }
+
+  private func setUp() {
+    viewModel = LoginViewModel(view: self)
+
+    viewModel.isCredentialValid.subscribeWithCache { [unowned self] enabled in
+      guard let enabled = enabled else { return }
+      self.loginButton.enabled = enabled
     }
+
+    viewModel.isNetworkInProgress.subscribe { [unowned self] inProgress in
+      guard let inProgress = inProgress else { return }
+      if inProgress {
+        self.loginButton.alpha = 0.0
+        self.loadingIndicatorView.startAnimating()
+      } else {
+        self.loginButton.alpha = 1.0
+        self.loadingIndicatorView.stopAnimating()
+      }
+    }
+  }
+
+}
+
+extension LoginViewController : LoginViewType {
+
+  func handleLoginSuccess() {
+    performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
+  }
+
+  func handleLoginFailure(error: NSError) {
+    let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+    presentViewController(alert, animated: true, completion: nil)
+  }
+
 }
 
 extension LoginViewController {
-    // MARK: - Actions
-    
-    @IBAction func fieldDidChange(field: UITextField) {
-        enableLoginButton(isValidFields())
-    }
-    
-    @IBAction func login() {
-        APIManager.sharedManager.login(with: emailField.text!,
-                                       and: passwordField.text!) { (token, error) in
-                                        
-                                        if let error = error {
-                                            self.showAlert(with: error)
-                                        } else {
-                                            self.performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
-                                        }
-        }
-    }
-    
-    // MARK: - Internal Methods
-    
-    private func isValidFields() -> Bool {
-        return emailField.text?.isValidEmail() == true &&
-                passwordField.text?.isValidPassword() == true
-    }
-    
-    private func enableLoginButton(enabled: Bool) {
-        loginButton.enabled = enabled ? true : false
-        loginButton.alpha = enabled ? 1.0 : 0.5
-    }
-    
-    private func setupView() {
-        enableLoginButton(false)
-    }    
+
+  @IBAction func usernameTextFieldDidChanged() {
+    username.value = emailField.text
+  }
+
+  @IBAction func passwordTextFieldDidChanged() {
+    password.value = passwordField.text
+  }
+
+  @IBAction func loginButtonDidTap() {
+    loginDidTap.value = Void()
+  }
+
 }
-
-private let EmailRegularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-private let MinimumPasswordCharacters = 6
-
-private extension String {
-    func isValidEmail() -> Bool {
-        if let _ = self.rangeOfString(EmailRegularExpression, options: .RegularExpressionSearch) {
-            return true
-        }
-        
-        return false
-    }
-    
-    func isValidPassword() -> Bool {
-        return self.characters.count >= MinimumPasswordCharacters
-    }
-}
-
