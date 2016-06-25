@@ -15,6 +15,7 @@ class SecretListViewController : UIViewController {
   @IBOutlet var tableView: UITableView!
 
   let addNewItemDidTap = Flow<String>()
+  let completeItemPositionDidTap = Flow<Int>()
 
   var viewModel: SecretListViewModelType!
 
@@ -38,7 +39,15 @@ class SecretListViewController : UIViewController {
 
 }
 
-extension SecretListViewController : UITableViewDelegate, UITableViewDataSource {
+extension SecretListViewController : UITableViewDelegate {
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    completeItemPositionDidTap.value = indexPath.row
+  }
+
+}
+
+extension SecretListViewController :  UITableViewDataSource {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return viewModel.itemCount()
@@ -48,8 +57,8 @@ extension SecretListViewController : UITableViewDelegate, UITableViewDataSource 
     guard let item = viewModel.itemAt(indexPath.row) else { return UITableViewCell() }
 
     let cell = tableView.dequeueReusableCellWithIdentifier(ItemCellIdentifier, forIndexPath: indexPath)
-    cell.textLabel?.text = item.title
-    cell.detailTextLabel?.text = viewModel.stringFrom(item.createdAt)
+    cell.textLabel?.attributedText = viewModel.attributedStringFor(item.title, completed: item.completed)
+    cell.detailTextLabel?.attributedText = viewModel.attributedStringFor(viewModel.stringFrom(item.createdAt), completed: item.completed)
     return cell
   }
 

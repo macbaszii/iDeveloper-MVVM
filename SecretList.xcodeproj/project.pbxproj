@@ -161,6 +161,7 @@
 				3C991AB61D1EAD310028558C /* Login */,
 				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
 				3C79C6C71D1EF40F007853BA /* SecretList */,
+				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
 			);
 			path = SecretList;
 			sourceTree = "<group>";
