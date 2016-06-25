@@ -9,6 +9,7 @@
 import UIKit
 
 private let MinimumPasswordCharacters = 6
+private let SecretListSegueIdentifier = "SecretListSegue"
 
 class LoginViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
@@ -35,7 +36,7 @@ extension LoginViewController {
                                         if let error = error {
                                             self.showAlertWithError(error)
                                         } else {
-                                            // TODO: Navigate to Next Screen
+                                            self.performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
                                         }
         }
     }

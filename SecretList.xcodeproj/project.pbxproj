@@ -15,6 +15,8 @@
 		DD5A475D1D1E4F5500B5D8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */; };
 		DD5A47681D1E4F5500B5D8E7 /* SecretListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */; };
 		DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47721D1E606D00B5D8E7 /* APIManager.swift */; };
+		DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */; };
+		DD8B0E191D1E77670017DFB7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0E181D1E77670017DFB7 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretListTests.swift; sourceTree = "<group>"; };
 		DD5A47691D1E4F5500B5D8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5A47721D1E606D00B5D8E7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListViewController.swift; sourceTree = "<group>"; };
+		DD8B0E181D1E77670017DFB7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,8 @@
 				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
 				DD5A47721D1E606D00B5D8E7 /* APIManager.swift */,
 				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
+				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
+				DD8B0E181D1E77670017DFB7 /* Item.swift */,
 				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
 				DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */,
 				DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */,
@@ -277,7 +283,9 @@
 			files = (
 				DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */,
 				DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */,
+				DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */,
 				DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */,
+				DD8B0E191D1E77670017DFB7 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
