@@ -9,11 +9,15 @@
 import Foundation
 
 class Item {
+
     var title: String
     var createdAt: NSDate
+    var completed: Bool
     
-    init(title: String,  createdAt: NSDate) {
+    init(title: String, createdAt: NSDate, completed: Bool) {
         self.title = title
         self.createdAt = createdAt
+        self.completed = completed
     }
+  
 }

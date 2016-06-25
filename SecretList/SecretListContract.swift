@@ -12,6 +12,7 @@ protocol SecretListViewType: class {
 
   //intent
   var addNewItemDidTap: Flow<String> { get }
+  var completeItemPositionDidTap: Flow<Int> { get }
   
 }
 
@@ -23,6 +24,7 @@ protocol SecretListViewModelType {
   func itemAt(index: Int) -> Item?
   func itemCount() -> Int
   
+  func attributedStringFor(text: String, completed: Bool) -> NSAttributedString
   func stringFrom(date: NSDate) -> String
   
 }
