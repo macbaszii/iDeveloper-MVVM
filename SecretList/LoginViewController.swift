@@ -37,7 +37,7 @@ class LoginViewController : UIViewController {
   }
   
   deinit {
-    print("\(#function)")
+    print(#function)
   }
   
 }
@@ -68,8 +68,7 @@ extension LoginViewController {
   }
   
   @IBAction func loginButtonDidTap() {
-    guard let username = username.value, password = password.value else { return }
-    viewModel.login(username, password: password)
+    loginDidTap.value = Void()
   }
   
 }

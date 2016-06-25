@@ -24,6 +24,11 @@ class LoginViewModel : LoginViewModelType {
     view.password.subscribe { [unowned self] passwordText in
       self.isCredentialValid.value = self.validateUsernameAndPassword(view.username.value, password: passwordText)
     }
+    
+    view.loginDidTap.subscribe { [unowned self] _ in
+      guard let username = view.username.value, password = view.password.value else { return }
+      self.login(username, password: password)
+    }
   }
   
   func login(username: String, password: String) {
