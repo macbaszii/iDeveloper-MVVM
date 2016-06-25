@@ -36,9 +36,14 @@ class LoginViewController : UIViewController {
     }
   }
   
+  deinit {
+    print("\(#function)")
+  }
+  
 }
 
 extension LoginViewController : LoginViewType {
+
   func handleLoginSuccess() {
     self.performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
   }
@@ -49,6 +54,7 @@ extension LoginViewController : LoginViewType {
         
     presentViewController(alert, animated: true, completion: nil)
   }
+  
 }
 
 extension LoginViewController {

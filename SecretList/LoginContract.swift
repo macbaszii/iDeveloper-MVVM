@@ -9,6 +9,7 @@
 import Foundation
 
 protocol LoginViewType: class {
+
   //intent
   var username: Flow<String> { get }
   var password: Flow<String> { get }
