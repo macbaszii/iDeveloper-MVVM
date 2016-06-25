@@ -17,7 +17,14 @@ class APIManager {
         
         let params = ["email": email, "password": password]
         let headers = ["Content-Type": "application/json"]
-        Alamofire.Manager.sharedInstance.request(.POST, "http://private-454f-mine8.apiary-mock.com/auth", parameters: params, encoding: .URL, headers: headers).responseJSON { (response: Response<AnyObject, NSError>) in
+      
+        let validCredential = (email == "bas@apple.com" && password == "abcd1234")
+      
+        let endPoint = validCredential ? "http://private-454f-mine8.apiary-mock.com/auth" : "http://private-454f-mine8.apiary-mock.com/auth/failed"
+      
+        Alamofire.Manager.sharedInstance.request(.POST, endPoint, parameters: params, encoding: .URL, headers: headers)
+          .validate()
+          .responseJSON { (response: Response<AnyObject, NSError>) in
             
             switch response.result {
             case .Success(let json):
