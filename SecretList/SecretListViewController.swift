@@ -10,64 +10,65 @@ import UIKit
 
 private let ItemCellIdentifier = "ItemCell"
 
-class SecretListViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
+class SecretListViewController : UIViewController {
+
+  @IBOutlet var tableView: UITableView!
+  
+  let addNewItemDidTap = Flow<String>()
+  
+  var viewModel: SecretListViewModelType!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    var items = [Item]()
+    viewModel = SecretListViewModel(view: self)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    viewModel.items.subscribe { [unowned self] _ in
+      self.tableView.reloadData()
     }
     
-    // MARK: - Actions
-    @IBAction func addNewItem() {
-        showAddNewItemAlert()
+    viewModel.title.subscribeWithCache { [unowned self] title in
+      self.title = title
     }
+  }
+    
 }
 
-// MARK: - UITableView Protocol Conformance
-extension SecretListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
+extension SecretListViewController : UITableViewDelegate, UITableViewDataSource {
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return viewModel.itemCount()
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    guard let item = viewModel.itemAt(indexPath.row) else { return UITableViewCell() }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(ItemCellIdentifier, forIndexPath: indexPath)
-        
-        let item = items[indexPath.row]
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .ShortStyle
-        
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(item.createdAt)
-        
-        return cell
-    }
+    let cell = tableView.dequeueReusableCellWithIdentifier(ItemCellIdentifier, forIndexPath: indexPath)
+    cell.textLabel?.text = item.title
+    cell.detailTextLabel?.text = viewModel.stringFrom(item.createdAt)
+    return cell
+  }
+  
 }
 
 extension SecretListViewController {
-    // MARK: - Internal Methods
-    
-    private func showAddNewItemAlert() {
-        let alert = UIAlertController(title: "Add New Item", message: "What are you gonna do ?", preferredStyle: .Alert)
-        
-        alert.addTextFieldWithConfigurationHandler { (textField) in
-            textField.placeholder = "Title here..."
-        }
-        
-        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) in
-            
-            if let field = alert.textFields?.first {
-                let item = Item(title: field.text ?? "", createdAt: NSDate())
-                self.items.append(item)
-                self.tableView.reloadData()
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        
-        presentViewController(alert, animated: true, completion: nil)
+
+  @IBAction func addNewItem() {
+    let alert = UIAlertController(title: "Add New Item", message: "What are you gonna do?", preferredStyle: .Alert)
+    alert.addTextFieldWithConfigurationHandler { textField in
+      textField.placeholder = "Title here..."
     }
+    
+    alert.addAction(UIAlertAction(title: "Add", style: .Default) { [unowned self] action in
+      guard let textField = alert.textFields?.first else { return }
+      self.addNewItemDidTap.value = textField.text
+    })
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+    
+    presentViewController(alert, animated: true, completion: nil)
+  }
+  
 }
+
+extension SecretListViewController : SecretListViewType {}
