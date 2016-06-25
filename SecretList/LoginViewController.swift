@@ -8,7 +8,6 @@
 
 import UIKit
 
-private let MinimumPasswordCharacters = 6
 private let SecretListSegueIdentifier = "SecretListSegue"
 
 class LoginViewController: UIViewController {
@@ -65,9 +64,12 @@ extension LoginViewController {
     }
 }
 
+private let EmailRegularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+private let MinimumPasswordCharacters = 6
+
 private extension String {
     func isValidEmail() -> Bool {
-        if let _ = self.rangeOfString("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", options: .RegularExpressionSearch) {
+        if let _ = self.rangeOfString(EmailRegularExpression, options: .RegularExpressionSearch) {
             return true
         }
         
