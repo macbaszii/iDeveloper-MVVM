@@ -16,9 +16,9 @@ class LoginViewController : UIViewController {
   @IBOutlet var passwordField: UITextField!
   @IBOutlet var loginButton: UIButton!
   
-  var username = Flow<String>()
-  var password = Flow<String>()
-  var loginDidTap = Flow<Void>()
+  let username = Flow<String>()
+  let password = Flow<String>()
+  let loginDidTap = Flow<Void>()
   
   var viewModel: LoginViewModelType!
   
@@ -45,7 +45,7 @@ class LoginViewController : UIViewController {
 extension LoginViewController : LoginViewType {
 
   func handleLoginSuccess() {
-    self.performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
+    performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
   }
   
   func handleLoginFailure(error: NSError) {

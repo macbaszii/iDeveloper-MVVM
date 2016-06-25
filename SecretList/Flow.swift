@@ -17,7 +17,7 @@ class Flow<T> {
     }
   }
   
-  var listener: Listener?
+  private var listener: Listener?
   
   init(_ value: T?) {
     self.value = value
