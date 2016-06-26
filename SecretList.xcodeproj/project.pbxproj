@@ -13,6 +13,7 @@
 		3C991AB11D1E97000028558C /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB01D1E97000028558C /* LoginContract.swift */; };
 		3C991AB31D1E98F90028558C /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB21D1E98F90028558C /* Flow.swift */; };
 		3C991AB51D1E9C8C0028558C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB41D1E9C8C0028558C /* LoginViewModel.swift */; };
+		3CD6C5A41D2014780061C101 /* SecretListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD6C5A31D2014780061C101 /* SecretListSpec.swift */; };
 		695818C4B9180802EB40EAA2 /* Pods_SecretListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA05A6F70D698973AFC62555 /* Pods_SecretListTests.framework */; };
 		D6EF81015E247E253D725C79 /* Pods_SecretList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */; };
 		DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		3C991AB01D1E97000028558C /* LoginContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
 		3C991AB21D1E98F90028558C /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		3C991AB41D1E9C8C0028558C /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3CD6C5A31D2014780061C101 /* SecretListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListSpec.swift; sourceTree = "<group>"; };
 		67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.debug.xcconfig"; sourceTree = "<group>"; };
 		BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.release.xcconfig"; sourceTree = "<group>"; };
 		DD5A474F1D1E4F5500B5D8E7 /* SecretList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 			children = (
 				DD5A47691D1E4F5500B5D8E7 /* Info.plist */,
 				3C5252281D1FCD5F0026D986 /* LoginSpec.swift */,
+				3CD6C5A31D2014780061C101 /* SecretListSpec.swift */,
 			);
 			path = SecretListTests;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD6C5A41D2014780061C101 /* SecretListSpec.swift in Sources */,
 				3C5252291D1FCD5F0026D986 /* LoginSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

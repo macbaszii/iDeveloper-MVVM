@@ -11,8 +11,8 @@ import Foundation
 protocol SecretListViewType: class {
 
   //intent
-  var addNewItemDidTap: Flow<String> { get }
-  var completeItemPositionDidTap: Flow<Int> { get }
+  var addNewItemIntent: Flow<String> { get }
+  var completeItemPositionIntent: Flow<Int> { get }
   
 }
 

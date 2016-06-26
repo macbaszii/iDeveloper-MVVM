@@ -11,9 +11,9 @@ import Foundation
 protocol LoginViewType: class {
 
   //intent
-  var username: Flow<String> { get }
-  var password: Flow<String> { get }
-  var loginDidTap: Flow<Void> { get }
+  var emailIntent: Flow<String> { get }
+  var passwordIntent: Flow<String> { get }
+  var loginIntent: Flow<Void> { get }
 
   //action
   func handleLoginSuccess()

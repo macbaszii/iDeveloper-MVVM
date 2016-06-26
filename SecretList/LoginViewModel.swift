@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginViewModel : LoginViewModelType {
+class LoginViewModel {
 
   let isCredentialValid = Flow(false)
   let isNetworkInProgress = Flow(false)
@@ -18,24 +18,33 @@ class LoginViewModel : LoginViewModelType {
   init(view: LoginViewType) {
     self.view = view
     
-    view.username.subscribe { [unowned self] usernameText in
-      self.isCredentialValid.value = self.validateUsernameAndPassword(usernameText, password: view.password.value)
+    view.emailIntent.subscribe { [unowned self] text in
+      self.isCredentialValid.value = self.validateEmailAndPassword(text, password: view.passwordIntent.value)
     }
     
-    view.password.subscribe { [unowned self] passwordText in
-      self.isCredentialValid.value = self.validateUsernameAndPassword(view.username.value, password: passwordText)
+    view.passwordIntent.subscribe { [unowned self] text in
+      self.isCredentialValid.value = self.validateEmailAndPassword(view.emailIntent.value, password: text)
     }
     
-    view.loginDidTap.subscribe { [unowned self] _ in
-      guard let username = view.username.value, password = view.password.value else { return }
-      self.login(username, password: password)
+    view.loginIntent.subscribe { [unowned self] _ in
+      guard let email = view.emailIntent.value, password = view.passwordIntent.value else { return }
+      self.login(email, password: password)
     }
   }
   
-  func login(username: String, password: String) {
+  private func validateEmailAndPassword(email: String?, password: String?) -> Bool {
+    guard let email = email, password = password else { return false }
+    return email.isValidEmail() && password.isValidPassword()
+  }
+  
+}
+
+extension LoginViewModel : LoginViewModelType {
+  
+  func login(email: String, password: String) {
     isNetworkInProgress.value = true
     
-    APIManager.sharedManager.login(with: username, and: password) { [unowned self] token, error in
+    APIManager.sharedManager.login(with: email, and: password) { [unowned self] token, error in
       self.isNetworkInProgress.value = false
       if let error = error {
         self.view?.handleLoginFailure(error)
@@ -43,11 +52,6 @@ class LoginViewModel : LoginViewModelType {
         self.view?.handleLoginSuccess()
       }
     }
-  }
-  
-  private func validateUsernameAndPassword(username: String?, password: String?) -> Bool {
-    guard let username = username, password = password else { return false }
-    return username.isValidEmail() && password.isValidPassword()
   }
   
 }
