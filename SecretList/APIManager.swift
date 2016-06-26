@@ -7,30 +7,32 @@
 //
 
 import Foundation
-import Alamofire
 
 class APIManager {
+    let session: NSURLSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: nil, delegateQueue: NSOperationQueue.mainQueue())
     static let sharedManager = APIManager()
     
     typealias AccessTokenCompletionBlock = (token: String?, error: NSError?) -> ()
     func login(with email: String, and password: String, completionBlock block: AccessTokenCompletionBlock) {
         
-        let params = ["email": email, "password": password]
         let headers = ["Content-Type": "application/json"]
         
         let endpoint = (email == "bas@apple.com" && password == "abcd1234") ? "http://private-454f-mine8.apiary-mock.com/auth" : "http://private-454f-mine8.apiary-mock.com/auth/failed"
         
+        let request = NSMutableURLRequest(URL: NSURL(string: endpoint)!)
+        request.HTTPMethod = "POST"
+        request.allHTTPHeaderFields = headers
         
-        Alamofire.Manager.sharedInstance.request(.POST, endpoint, parameters: params, encoding: .URL, headers: headers).responseJSON { (response: Response<AnyObject, NSError>) in
-            
-            switch response.result {
-            case .Success(let json):
-                if let json = json as? [String: AnyObject] {
-                    block(token: json["access_token"] as? String, error: nil)
-                }
-            case .Failure(let error):
-                block(token: nil, error: error)
+        session.dataTaskWithRequest(request) { (data, response, error) in
+            guard let data = data,
+                let JSONData = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: String],
+                let accessToken = JSONData?["access_token"]
+                else {
+                    block(token: nil, error: error)
+                    return
             }
-        }
+            
+            block(token: accessToken, error: nil)
+            }.resume()
     }
 }
