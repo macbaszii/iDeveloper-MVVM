@@ -15,6 +15,8 @@
 		DD5A475D1D1E4F5500B5D8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */; };
 		DD5A47681D1E4F5500B5D8E7 /* SecretListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */; };
 		DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47721D1E606D00B5D8E7 /* APIManager.swift */; };
+		DD86C8C21D1FB19600E555B8 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD86C8C11D1FB19600E555B8 /* LoginButton.swift */; };
+		DD86C8C41D1FB22500E555B8 /* CredentialField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD86C8C31D1FB22500E555B8 /* CredentialField.swift */; };
 		DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */; };
 		DD8B0E191D1E77670017DFB7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0E181D1E77670017DFB7 /* Item.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,8 @@
 		DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretListTests.swift; sourceTree = "<group>"; };
 		DD5A47691D1E4F5500B5D8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5A47721D1E606D00B5D8E7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DD86C8C11D1FB19600E555B8 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		DD86C8C31D1FB22500E555B8 /* CredentialField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialField.swift; sourceTree = "<group>"; };
 		DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListViewController.swift; sourceTree = "<group>"; };
 		DD8B0E181D1E77670017DFB7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,7 @@
 			children = (
 				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
 				DD5A47721D1E606D00B5D8E7 /* APIManager.swift */,
+				DD86C8C11D1FB19600E555B8 /* LoginButton.swift */,
 				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
 				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
 				DD8B0E181D1E77670017DFB7 /* Item.swift */,
@@ -116,6 +121,7 @@
 				DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */,
 				DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */,
 				DD5A475E1D1E4F5500B5D8E7 /* Info.plist */,
+				DD86C8C31D1FB22500E555B8 /* CredentialField.swift */,
 			);
 			path = SecretList;
 			sourceTree = "<group>";
@@ -136,12 +142,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD5A476C1D1E4F5500B5D8E7 /* Build configuration list for PBXNativeTarget "SecretList" */;
 			buildPhases = (
-				9E96C6E3CB69BE3E043DDC7F /* 📦 Check Pods Manifest.lock */,
+				9E96C6E3CB69BE3E043DDC7F /* [CP] Check Pods Manifest.lock */,
 				DD5A474B1D1E4F5500B5D8E7 /* Sources */,
 				DD5A474C1D1E4F5500B5D8E7 /* Frameworks */,
 				DD5A474D1D1E4F5500B5D8E7 /* Resources */,
-				62F42C04CA8CF0DFED0D331F /* 📦 Embed Pods Frameworks */,
-				9B94215FA365C4E6D0BCB15F /* 📦 Copy Pods Resources */,
+				62F42C04CA8CF0DFED0D331F /* [CP] Embed Pods Frameworks */,
+				9B94215FA365C4E6D0BCB15F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,14 +235,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		62F42C04CA8CF0DFED0D331F /* 📦 Embed Pods Frameworks */ = {
+		62F42C04CA8CF0DFED0D331F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +250,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretList/Pods-SecretList-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B94215FA365C4E6D0BCB15F /* 📦 Copy Pods Resources */ = {
+		9B94215FA365C4E6D0BCB15F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,14 +265,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretList/Pods-SecretList-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9E96C6E3CB69BE3E043DDC7F /* 📦 Check Pods Manifest.lock */ = {
+		9E96C6E3CB69BE3E043DDC7F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,10 +288,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */,
+				DD86C8C21D1FB19600E555B8 /* LoginButton.swift in Sources */,
 				DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */,
 				DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */,
 				DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */,
 				DD8B0E191D1E77670017DFB7 /* Item.swift in Sources */,
+				DD86C8C41D1FB22500E555B8 /* CredentialField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

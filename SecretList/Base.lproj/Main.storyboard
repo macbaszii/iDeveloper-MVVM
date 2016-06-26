@@ -6,7 +6,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Secret List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="SecretList" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,26 +19,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LLy-UR-XlA">
-                                <rect key="frame" x="150" y="238" width="300" height="125"/>
+                                <rect key="frame" x="60" y="213" width="480" height="175"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BA3-HS-Zhy">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="115"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-IW-VUr">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-IW-VUr" customClass="CredentialField" customModule="SecretList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="480" height="50"/>
+                                                <color key="backgroundColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.35686274509999999" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="RHg-Hw-c0y"/>
+                                                    <constraint firstAttribute="height" constant="50" id="RHg-Hw-c0y"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="fieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="tat-nA-rF1"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s07-Xo-KX5">
-                                                <rect key="frame" x="0.0" y="45" width="300" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s07-Xo-KX5" customClass="CredentialField" customModule="SecretList" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="65" width="480" height="50"/>
+                                                <color key="backgroundColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.35686274509999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                        <color key="value" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="fieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="iuZ-jR-2Ml"/>
                                                 </connections>
@@ -52,9 +72,21 @@
                                             <constraint firstItem="yMg-IW-VUr" firstAttribute="top" secondItem="BA3-HS-Zhy" secondAttribute="top" id="sb8-ed-EgU"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-I6-KAp">
-                                        <rect key="frame" x="60" y="95" width="180" height="30"/>
-                                        <state key="normal" title="Login"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bK-I6-KAp" customClass="LoginButton" customModule="SecretList" customModuleProvider="target">
+                                        <rect key="frame" x="150" y="135" width="180" height="40"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.78823529410000004" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="W3C-Rd-mBT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="login" destination="BYZ-38-t0r" eventType="touchUpInside" id="8QL-dR-tP2"/>
                                         </connections>
@@ -62,15 +94,15 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ut-uD-nid"/>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IVs-41-Qde"/>
-                            <constraint firstItem="yMg-IW-VUr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="dK1-zZ-mOe"/>
+                            <constraint firstItem="yMg-IW-VUr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="dK1-zZ-mOe"/>
                             <constraint firstItem="7bK-I6-KAp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="oI0-WH-afx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MiU-UQ-LWW"/>
+                    <navigationItem key="navigationItem" title="Secret List" id="MiU-UQ-LWW"/>
                     <connections>
                         <outlet property="emailField" destination="yMg-IW-VUr" id="tTz-kg-bge"/>
                         <outlet property="loginButton" destination="7bK-I6-KAp" id="lQA-as-XJU"/>
