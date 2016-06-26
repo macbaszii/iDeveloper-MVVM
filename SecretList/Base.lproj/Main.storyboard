@@ -32,7 +32,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="fieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="tat-nA-rF1"/>
+                                                    <action selector="usernameTextFieldDidChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="ze6-ia-ej9"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s07-Xo-KX5">
@@ -40,7 +40,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="fieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="iuZ-jR-2Ml"/>
+                                                    <action selector="passwordTextFieldDidChanged" destination="BYZ-38-t0r" eventType="editingChanged" id="kxH-l1-dN4"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -56,23 +56,29 @@
                                         <rect key="frame" x="60" y="95" width="180" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <action selector="login" destination="BYZ-38-t0r" eventType="touchUpInside" id="8QL-dR-tP2"/>
+                                            <action selector="loginButtonDidTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="5gk-0d-G1e"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="87D-2O-kNH" userLabel="Activity Indicator">
+                                <rect key="frame" x="290" y="343" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ut-uD-nid"/>
+                            <constraint firstItem="87D-2O-kNH" firstAttribute="bottom" secondItem="LLy-UR-XlA" secondAttribute="bottom" id="IUy-Yn-emk"/>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IVs-41-Qde"/>
                             <constraint firstItem="yMg-IW-VUr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="dK1-zZ-mOe"/>
                             <constraint firstItem="7bK-I6-KAp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="oI0-WH-afx"/>
+                            <constraint firstItem="87D-2O-kNH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zVc-gY-ZpP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MiU-UQ-LWW"/>
                     <connections>
                         <outlet property="emailField" destination="yMg-IW-VUr" id="tTz-kg-bge"/>
+                        <outlet property="loadingIndicatorView" destination="87D-2O-kNH" id="Pno-BE-Pbr"/>
                         <outlet property="loginButton" destination="7bK-I6-KAp" id="lQA-as-XJU"/>
                         <outlet property="passwordField" destination="s07-Xo-KX5" id="H3l-IE-PgH"/>
                         <segue destination="KS9-Ts-yow" kind="show" identifier="SecretListSegue" id="PFH-2U-WZW"/>
@@ -102,21 +108,21 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tnc-TF-VUW" id="0Ys-mu-JLc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xsr-Hc-ml2">
-                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                    <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aji-pt-0I5">
-                                                    <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                                    <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
