@@ -14,9 +14,9 @@ class SecretListViewController : UIViewController {
 
   @IBOutlet var tableView: UITableView!
 
-  let addNewItemDidTap = Flow<String>()
-  let completeItemPositionDidTap = Flow<Int>()
-
+  let addNewItemIntent = Flow<String>()
+  let completeItemPositionIntent = Flow<Int>()
+  
   var viewModel: SecretListViewModelType!
 
   override func viewDidLoad() {
@@ -42,7 +42,7 @@ class SecretListViewController : UIViewController {
 extension SecretListViewController : UITableViewDelegate {
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    completeItemPositionDidTap.value = indexPath.row
+    completeItemPositionIntent.value = indexPath.row
   }
 
 }
@@ -74,7 +74,7 @@ extension SecretListViewController {
 
     alert.addAction(UIAlertAction(title: "Add", style: .Default) { [unowned self] action in
       guard let textField = alert.textFields?.first else { return }
-      self.addNewItemDidTap.value = textField.text
+      self.addNewItemIntent.value = textField.text
     })
 
     alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))

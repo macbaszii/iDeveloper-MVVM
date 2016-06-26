@@ -17,9 +17,9 @@ class LoginViewController : UIViewController {
   @IBOutlet var loginButton: UIButton!
   @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
 
-  let username = Flow<String>()
-  let password = Flow<String>()
-  let loginDidTap = Flow<Void>()
+  let emailIntent = Flow<String>()
+  let passwordIntent = Flow<String>()
+  let loginIntent = Flow<Void>()
 
   var viewModel: LoginViewModelType!
 
@@ -68,15 +68,15 @@ extension LoginViewController : LoginViewType {
 extension LoginViewController {
 
   @IBAction func usernameTextFieldDidChanged() {
-    username.value = emailField.text
+    emailIntent.value = emailField.text
   }
 
   @IBAction func passwordTextFieldDidChanged() {
-    password.value = passwordField.text
+    passwordIntent.value = passwordField.text
   }
 
   @IBAction func loginButtonDidTap() {
-    loginDidTap.value = Void()
+    loginIntent.value = Void()
   }
 
 }

@@ -14,14 +14,13 @@ import Nimble
 class LoginSpec : QuickSpec {
 
   override func spec() {
-  
     var v: LoginViewType!
     var vm: LoginViewModelType!
     
     class LoginView : LoginViewType {
-      let username = Flow("")
-      let password = Flow("")
-      let loginDidTap = Flow<Void>()
+      let emailIntent = Flow("")
+      let passwordIntent = Flow("")
+      let loginIntent = Flow<Void>()
       
       var success: (() -> Void)?
       var failure: (() -> Void)?
@@ -46,40 +45,40 @@ class LoginSpec : QuickSpec {
       }
     
       it("input only username") {
-        v.username.value = "hello"
+        v.emailIntent.value = "hello"
         expect(vm.isCredentialValid.value).to(equal(false))
       }
     
       it("input only password") {
-        v.password.value = "passwd"
+        v.passwordIntent.value = "passwd"
         expect(vm.isCredentialValid.value).to(equal(false))
       }
       
       it("input both but not a valid email") {
-        v.username.value = "hello"
-        v.password.value = "123456"
+        v.emailIntent.value = "hello"
+        v.passwordIntent.value = "123456"
         expect(vm.isCredentialValid.value).to(equal(false))
       }
       
       it("input both but not a valid password") {
-        v.username.value = "hello@gmail.com"
-        v.password.value = "11"
+        v.emailIntent.value = "hello@gmail.com"
+        v.passwordIntent.value = "11"
         expect(vm.isCredentialValid.value).to(equal(false))
       }
     }
     
     describe("login is enabled") {
       it("input both with valid username and password") {
-        v.username.value = "hello@gmail.com"
-        v.password.value = "123456"
+        v.emailIntent.value = "hello@gmail.com"
+        v.passwordIntent.value = "123456"
         expect(vm.isCredentialValid.value).to(equal(true))
       }
       
       describe("while login is underway") {
         it("input incorrect credential, resulting in failure") {
-          v.username.value = "hello@gmail.com"
-          v.password.value = "123456"
-          v.loginDidTap.value = Void()
+          v.emailIntent.value = "hello@gmail.com"
+          v.passwordIntent.value = "123456"
+          v.loginIntent.value = Void()
         
           waitUntil(timeout: 1) { done in
             let _v = v as! LoginView
@@ -88,9 +87,9 @@ class LoginSpec : QuickSpec {
         }
       
         it("input correct credential, resulting in success") {
-          v.username.value = "bas@apple.com"
-          v.password.value = "abcd1234"
-          v.loginDidTap.value = Void()
+          v.emailIntent.value = "bas@apple.com"
+          v.passwordIntent.value = "abcd1234"
+          v.loginIntent.value = Void()
         
           waitUntil(timeout: 1) { done in
             let _v = v as! LoginView
@@ -99,12 +98,12 @@ class LoginSpec : QuickSpec {
         }
         
         it("network progress is false, then true") {
-          v.username.value = "test"
-          v.password.value = "testtest"
+          v.emailIntent.value = "test"
+          v.passwordIntent.value = "testtest"
           
           expect(vm.isNetworkInProgress.value).to(equal(false))
           
-          v.loginDidTap.value = Void()
+          v.loginIntent.value = Void()
           
           expect(vm.isNetworkInProgress.value).to(equal(true))
           expect(vm.isNetworkInProgress.value).toEventually(equal(false), timeout: 1)

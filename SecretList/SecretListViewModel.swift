@@ -9,7 +9,7 @@
 import Foundation
 import UIKit.NSAttributedString
 
-class SecretListViewModel : SecretListViewModelType {
+class SecretListViewModel {
 
   let title = Flow("No Item")
   let items = Flow([Item]())
@@ -19,7 +19,7 @@ class SecretListViewModel : SecretListViewModelType {
   init(view: SecretListViewType) {
     self.view = view
    
-    view.addNewItemDidTap.subscribe { [unowned self] newTitle in
+    view.addNewItemIntent.subscribe { [unowned self] newTitle in
       let newItem = Item(title: newTitle ?? "", createdAt: NSDate(), completed: false)
       
       var items = self.items.value!
@@ -28,7 +28,7 @@ class SecretListViewModel : SecretListViewModelType {
       self.title.value = self.titleForItems(items)
     }
     
-    view.completeItemPositionDidTap.subscribe { [unowned self] position in
+    view.completeItemPositionIntent.subscribe { [unowned self] position in
       guard let position = position else { return }
       
       var items = self.items.value!
@@ -53,6 +53,10 @@ class SecretListViewModel : SecretListViewModelType {
     }
   }
   
+}
+
+extension SecretListViewModel : SecretListViewModelType {
+
   func itemAt(index: Int) -> Item? {
     return items.value?[index]
   }
