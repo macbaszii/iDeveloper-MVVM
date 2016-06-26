@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C5252291D1FCD5F0026D986 /* LoginSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5252281D1FCD5F0026D986 /* LoginSpec.swift */; };
 		3C79C6C91D1EF434007853BA /* SecretListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C79C6C81D1EF434007853BA /* SecretListContract.swift */; };
 		3C79C6CB1D1EF43F007853BA /* SecretListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C79C6CA1D1EF43F007853BA /* SecretListViewModel.swift */; };
 		3C991AB11D1E97000028558C /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB01D1E97000028558C /* LoginContract.swift */; };
 		3C991AB31D1E98F90028558C /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB21D1E98F90028558C /* Flow.swift */; };
 		3C991AB51D1E9C8C0028558C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C991AB41D1E9C8C0028558C /* LoginViewModel.swift */; };
+		695818C4B9180802EB40EAA2 /* Pods_SecretListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA05A6F70D698973AFC62555 /* Pods_SecretListTests.framework */; };
 		D6EF81015E247E253D725C79 /* Pods_SecretList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */; };
 		DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */; };
 		DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */; };
 		DD5A47581D1E4F5500B5D8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */; };
 		DD5A475A1D1E4F5500B5D8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */; };
 		DD5A475D1D1E4F5500B5D8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */; };
-		DD5A47681D1E4F5500B5D8E7 /* SecretListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */; };
 		DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47721D1E606D00B5D8E7 /* APIManager.swift */; };
 		DD86C8C21D1FB19600E555B8 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD86C8C11D1FB19600E555B8 /* LoginButton.swift */; };
 		DD86C8C41D1FB22500E555B8 /* CredentialField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD86C8C31D1FB22500E555B8 /* CredentialField.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C5252281D1FCD5F0026D986 /* LoginSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSpec.swift; sourceTree = "<group>"; };
 		3C79C6C81D1EF434007853BA /* SecretListContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListContract.swift; sourceTree = "<group>"; };
 		3C79C6CA1D1EF43F007853BA /* SecretListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListViewModel.swift; sourceTree = "<group>"; };
 		3C991AB01D1E97000028558C /* LoginContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
@@ -52,14 +54,16 @@
 		DD5A475C1D1E4F5500B5D8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD5A475E1D1E4F5500B5D8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5A47631D1E4F5500B5D8E7 /* SecretListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretListTests.swift; sourceTree = "<group>"; };
 		DD5A47691D1E4F5500B5D8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD5A47721D1E606D00B5D8E7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		DD86C8C11D1FB19600E555B8 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		DD86C8C31D1FB22500E555B8 /* CredentialField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialField.swift; sourceTree = "<group>"; };
 		DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListViewController.swift; sourceTree = "<group>"; };
 		DD8B0E181D1E77670017DFB7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E4866AF0C23A5A0130C45945 /* Pods-SecretListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretListTests/Pods-SecretListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F1793674074FC66A083A21BC /* Pods-SecretListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretListTests/Pods-SecretListTests.release.xcconfig"; sourceTree = "<group>"; };
 		F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA05A6F70D698973AFC62555 /* Pods_SecretListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695818C4B9180802EB40EAA2 /* Pods_SecretListTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,8 @@
 			children = (
 				67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */,
 				BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */,
+				E4866AF0C23A5A0130C45945 /* Pods-SecretListTests.debug.xcconfig */,
+				F1793674074FC66A083A21BC /* Pods-SecretListTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -114,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */,
+				FA05A6F70D698973AFC62555 /* Pods_SecretListTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,22 +150,17 @@
 			isa = PBXGroup;
 			children = (
 				DD5A47721D1E606D00B5D8E7 /* APIManager.swift */,
-				DD86C8C11D1FB19600E555B8 /* LoginButton.swift */,
-				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
-				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
-				DD8B0E181D1E77670017DFB7 /* Item.swift */,
-				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
 				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
 				DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */,
+				DD86C8C31D1FB22500E555B8 /* CredentialField.swift */,
 				3C991AB21D1E98F90028558C /* Flow.swift */,
 				DD5A475E1D1E4F5500B5D8E7 /* Info.plist */,
-				DD86C8C31D1FB22500E555B8 /* CredentialField.swift */,
 				DD8B0E181D1E77670017DFB7 /* Item.swift */,
 				DD5A475B1D1E4F5500B5D8E7 /* LaunchScreen.storyboard */,
 				3C991AB61D1EAD310028558C /* Login */,
+				DD86C8C11D1FB19600E555B8 /* LoginButton.swift */,
 				DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */,
 				3C79C6C71D1EF40F007853BA /* SecretList */,
-				DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */,
 			);
 			path = SecretList;
 			sourceTree = "<group>";
@@ -165,8 +168,8 @@
 		DD5A47661D1E4F5500B5D8E7 /* SecretListTests */ = {
 			isa = PBXGroup;
 			children = (
-				DD5A47671D1E4F5500B5D8E7 /* SecretListTests.swift */,
 				DD5A47691D1E4F5500B5D8E7 /* Info.plist */,
+				3C5252281D1FCD5F0026D986 /* LoginSpec.swift */,
 			);
 			path = SecretListTests;
 			sourceTree = "<group>";
@@ -198,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD5A476F1D1E4F5500B5D8E7 /* Build configuration list for PBXNativeTarget "SecretListTests" */;
 			buildPhases = (
+				541605E8B7433951CE2749E0 /* [CP] Check Pods Manifest.lock */,
 				DD5A475F1D1E4F5500B5D8E7 /* Sources */,
 				DD5A47601D1E4F5500B5D8E7 /* Frameworks */,
 				DD5A47611D1E4F5500B5D8E7 /* Resources */,
+				AF94AEBCBEA2267938DE0083 /* [CP] Embed Pods Frameworks */,
+				966DF6870E4069896E91B3F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +277,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		541605E8B7433951CE2749E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		62F42C04CA8CF0DFED0D331F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +305,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretList/Pods-SecretList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		966DF6870E4069896E91B3F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretListTests/Pods-SecretListTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9B94215FA365C4E6D0BCB15F /* [CP] Copy Pods Resources */ = {
@@ -316,6 +352,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		AF94AEBCBEA2267938DE0083 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecretListTests/Pods-SecretListTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -342,7 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD5A47681D1E4F5500B5D8E7 /* SecretListTests.swift in Sources */,
+				3C5252291D1FCD5F0026D986 /* LoginSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +448,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -443,6 +495,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -466,6 +519,7 @@
 			baseConfigurationReference = 67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SecretList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.macbaszii.SecretList;
@@ -478,6 +532,7 @@
 			baseConfigurationReference = BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = SecretList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.macbaszii.SecretList;
@@ -487,6 +542,7 @@
 		};
 		DD5A47701D1E4F5500B5D8E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4866AF0C23A5A0130C45945 /* Pods-SecretListTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SecretListTests/Info.plist;
@@ -499,6 +555,7 @@
 		};
 		DD5A47711D1E4F5500B5D8E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1793674074FC66A083A21BC /* Pods-SecretListTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SecretListTests/Info.plist;
