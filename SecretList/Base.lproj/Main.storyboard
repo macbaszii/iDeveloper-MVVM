@@ -27,6 +27,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-IW-VUr" customClass="CredentialField" customModule="SecretList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="480" height="50"/>
                                                 <color key="backgroundColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.35686274509999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="RHg-Hw-c0y"/>
                                                 </constraints>
@@ -48,6 +49,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s07-Xo-KX5" customClass="CredentialField" customModule="SecretList" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="65" width="480" height="50"/>
                                                 <color key="backgroundColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.35686274509999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
