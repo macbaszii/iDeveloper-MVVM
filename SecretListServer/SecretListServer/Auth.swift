@@ -34,7 +34,7 @@ func addItem(server: HttpServer) {
         
         let newItem = Item(title: title, createdAt: NSDate())
         items.append(newItem)
-        return .OK(.Json(newItem))
+        return .OK(.Json(newItem.toDict()))
     }
 }
 

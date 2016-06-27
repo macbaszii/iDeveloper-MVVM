@@ -46,7 +46,7 @@ class APIManager {
                         var items = [Item]()
                         
                         for item in itemsObject {
-                            items.append(Item(title: item["title"] as! String, createdAt: item["created_at"] as! NSDate))
+                            items.append(Item(json: item))
                         }
                         
                         block(items: items, error: nil)
@@ -68,7 +68,7 @@ class APIManager {
                 switch response.result {
                 case .Success(let json):
                     if let json = json as? [String: AnyObject] {
-                        let item = Item(title: json["title"] as! String, createdAt: json["date"] as! NSDate)
+                        let item = Item(json: json)
                         block(item: item, error: nil)
                     }
                 case .Failure(let error):

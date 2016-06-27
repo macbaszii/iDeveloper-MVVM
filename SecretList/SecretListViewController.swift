@@ -45,7 +45,7 @@ extension SecretListViewController: UITableViewDataSource, UITableViewDelegate {
         dateFormatter.timeStyle = .ShortStyle
         
         cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(item.createdAt)
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(item.createdAt!)
         
         return cell
     }
