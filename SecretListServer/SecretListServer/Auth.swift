@@ -16,7 +16,13 @@ var items = [Item]()
 
 func allItems(server: HttpServer) {
     server.get["/items"] = { request in
-        return .OK(.Json(items))
+        var allItems = [[String: AnyObject]]()
+        for item in items {
+            allItems.append(["title": item.title, "created_at": item.createdAt])
+        }
+        
+        let json = ["items": allItems]
+        return .OK(.Json(json))
     }
 }
 
@@ -27,7 +33,7 @@ func addItem(server: HttpServer) {
         
         let newItem = Item(title: title, createdAt: NSDate())
         items.append(newItem)
-        return .OK(.Json([]))
+        return .OK(.Json(newItem))
     }
 }
 
