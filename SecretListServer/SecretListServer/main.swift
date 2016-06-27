@@ -24,9 +24,11 @@ do {
     list += "</ul>"
     return .OK(.Html(list))
   }
-  
+    
   //api
   auth(server)
+  allItems(server)
+  addItem(server)
   
   NSRunLoop.mainRunLoop().run()
 } catch {
