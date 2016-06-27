@@ -16,12 +16,10 @@ class APIManager {
     func login(with email: String, and password: String, completionBlock block: AccessTokenCompletionBlock) {
         
         let params = ["email": email, "password": password]
-        let headers = ["Content-Type": "application/json"]
-        
-        let endpoint = (email == "bas@apple.com" && password == "abcd1234") ? "http://private-454f-mine8.apiary-mock.com/auth" : "http://private-454f-mine8.apiary-mock.com/auth/failed"
-        
-        
-        Alamofire.Manager.sharedInstance.request(.POST, endpoint, parameters: params, encoding: .URL, headers: headers).responseJSON { (response: Response<AnyObject, NSError>) in
+      
+        Alamofire.Manager.sharedInstance.request(.POST, "http://localhost:8888/auth", parameters: params, encoding: .URL)
+          .validate()
+          .responseJSON { (response: Response<AnyObject, NSError>) in
             
             switch response.result {
             case .Success(let json):
