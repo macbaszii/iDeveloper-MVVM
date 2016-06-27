@@ -12,16 +12,17 @@ import Swifter
 private let validEmail = "bas@apple.com"
 private let validPassword = "abcd1234"
 
-var items = [Item]()
+var items = [
+  Item(title: "Buy Milk", createdAt: NSDate()),
+  Item(title: "Sing Karaoke", createdAt: NSDate()),
+  Item(title: "Test drive", createdAt: NSDate()),
+  Item(title: "Visit mom", createdAt: NSDate()),
+  Item(title: "Bake a cake", createdAt: NSDate()),
+]
 
 func allItems(server: HttpServer) {
     server.get["/items"] = { request in
-        var allItems = [[String: AnyObject]]()
-        for item in items {
-            allItems.append(["title": item.title, "created_at": item.createdAt])
-        }
-        
-        let json = ["items": allItems]
+        let json = ["items": items.map { item in item.toDict() }]
         return .OK(.Json(json))
     }
 }
