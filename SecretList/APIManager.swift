@@ -16,12 +16,10 @@ class APIManager {
     func login(with email: String, and password: String, completionBlock block: AccessTokenCompletionBlock) {
         
         let params = ["email": email, "password": password]
-        let headers = ["Content-Type": "application/json"]
-        
-        let endpoint = (email == "bas@apple.com" && password == "abcd1234") ? "http://private-454f-mine8.apiary-mock.com/auth" : "http://private-454f-mine8.apiary-mock.com/auth/failed"
-        
-        
-        Alamofire.Manager.sharedInstance.request(.POST, endpoint, parameters: params, encoding: .URL, headers: headers).responseJSON { (response: Response<AnyObject, NSError>) in
+      
+        Alamofire.Manager.sharedInstance.request(.POST, "http://localhost:8888/auth", parameters: params, encoding: .URL)
+          .validate()
+          .responseJSON { (response: Response<AnyObject, NSError>) in
             
             switch response.result {
             case .Success(let json):
@@ -31,6 +29,51 @@ class APIManager {
             case .Failure(let error):
                 block(token: nil, error: error)
             }
+        }
+    }
+    
+    typealias ItemsCompletionBlock = (items: [Item], error: NSError?) -> ()
+    func allItems(completionBlock block: ItemsCompletionBlock) {
+        
+        Alamofire.Manager.sharedInstance.request(.GET, "http://localhost:8888/items")
+            .validate()
+            .responseJSON { (response: Response<AnyObject, NSError>) in
+            
+                switch response.result {
+                case .Success(let json):
+                    if let json = json as? [String: AnyObject],
+                    let itemsObject = json["items"] as? [[String: AnyObject]] {
+                        var items = [Item]()
+                        
+                        for item in itemsObject {
+                            items.append(Item(json: item))
+                        }
+                        
+                        block(items: items, error: nil)
+                    }
+                case .Failure(let error):
+                    block(items: [], error: error)
+                }
+        }
+    }
+    
+    typealias ItemCompletionBlock = (item: Item?, error: NSError?) -> ()
+    func add(item item: Item, completionBlock block: ItemCompletionBlock) {
+        
+        let params = ["title": item.title]
+        Alamofire.Manager.sharedInstance.request(.POST, "http://localhost:8888/items", parameters: params, encoding: .URL)
+            .validate()
+            .responseJSON { (response: Response<AnyObject, NSError>) in
+                
+                switch response.result {
+                case .Success(let json):
+                    if let json = json as? [String: AnyObject] {
+                        let item = Item(json: json)
+                        block(item: item, error: nil)
+                    }
+                case .Failure(let error):
+                    block(item: nil, error: error)
+                }
         }
     }
 }

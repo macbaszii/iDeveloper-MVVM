@@ -33,7 +33,7 @@ extension LoginViewController {
                                        and: passwordField.text!) { (token, error) in
                                         
                                         if let error = error {
-                                            self.showAlertWithError(error)
+                                            self.showAlert(with: error)
                                         } else {
                                             self.performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
                                         }
@@ -54,14 +54,7 @@ extension LoginViewController {
     
     private func setupView() {
         enableLoginButton(false)
-    }
-    
-    private func showAlertWithError(error: NSError) {
-        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-        
-        presentViewController(alert, animated: true, completion: nil)
-    }
+    }    
 }
 
 private let EmailRegularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
