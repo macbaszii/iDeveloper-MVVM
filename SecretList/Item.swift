@@ -29,10 +29,11 @@ class Item {
         }
     }
     
-    func date(from ISOString: String) -> NSDate? {
+    private func date(from ISOString: String) -> NSDate? {
         struct Instance {
             static let formatter = NSDateFormatter()
         }
+        
         Instance.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         Instance.formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         Instance.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"

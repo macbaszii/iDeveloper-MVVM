@@ -11,6 +11,8 @@
 		3C01AEA31D21425D009B095C /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C01AEA21D21425D009B095C /* Swifter.framework */; };
 		3C01AEA41D214269009B095C /* Swifter.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C01AEA21D21425D009B095C /* Swifter.framework */; };
 		3C3B56CF1D21499F008D2007 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B56CE1D21499F008D2007 /* Auth.swift */; };
+		DD724F651D222F5E00B07770 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD724F641D222F5E00B07770 /* APIHelper.swift */; };
+		DD724F671D222F6800B07770 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD724F661D222F6800B07770 /* Items.swift */; };
 		DDC69EBA1D21913A000E8234 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC69EB91D21913A000E8234 /* Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		3C01AE9B1D21417C009B095C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3C01AEA21D21425D009B095C /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = ../Carthage/Build/Mac/Swifter.framework; sourceTree = "<group>"; };
 		3C3B56CE1D21499F008D2007 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		DD724F641D222F5E00B07770 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		DD724F661D222F6800B07770 /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		DDC69EB91D21913A000E8234 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +89,9 @@
 		3C3B56D11D214DC8008D2007 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DD724F641D222F5E00B07770 /* APIHelper.swift */,
 				3C3B56CE1D21499F008D2007 /* Auth.swift */,
+				DD724F661D222F6800B07770 /* Items.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -147,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD724F651D222F5E00B07770 /* APIHelper.swift in Sources */,
+				DD724F671D222F6800B07770 /* Items.swift in Sources */,
 				3C01AE9C1D21417C009B095C /* main.swift in Sources */,
 				DDC69EBA1D21913A000E8234 /* Item.swift in Sources */,
 				3C3B56CF1D21499F008D2007 /* Auth.swift in Sources */,
