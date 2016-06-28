@@ -30,7 +30,7 @@ func allItems(server: HttpServer) {
 func addItem(server: HttpServer) {
     server.post["/items"] = { request in
         let params = paramsObject(with: request)
-        guard let title = params["title"] else { return .BadRequest(.Json(["error": "title can't be blank"])) }
+        guard let title = params["title"] else { return .BadRequest(.Json(error(with: "Title can't be blank"))) }
         
         let newItem = Item(title: title, createdAt: NSDate())
         items.append(newItem)
@@ -57,4 +57,8 @@ func paramsObject(with request: HttpRequest) -> [String: String] {
         _map[item.0] = item.1
         return _map
     }
+}
+
+func error(with message: String) -> [String: String] {
+    return ["error": message]
 }
