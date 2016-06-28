@@ -19,6 +19,7 @@
 		DD86C8C41D1FB22500E555B8 /* CredentialField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD86C8C31D1FB22500E555B8 /* CredentialField.swift */; };
 		DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */; };
 		DD8B0E191D1E77670017DFB7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0E181D1E77670017DFB7 /* Item.swift */; };
+		DDC69EBC1D219A98000E8234 /* UIViewController+SecretList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC69EBB1D219A98000E8234 /* UIViewController+SecretList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DD86C8C31D1FB22500E555B8 /* CredentialField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialField.swift; sourceTree = "<group>"; };
 		DD8B0E141D1E756C0017DFB7 /* SecretListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListViewController.swift; sourceTree = "<group>"; };
 		DD8B0E181D1E77670017DFB7 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		DDC69EBB1D219A98000E8234 /* UIViewController+SecretList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SecretList.swift"; sourceTree = "<group>"; };
 		F97D6B8F9C1D2037C4CDD7F3 /* Pods_SecretList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */,
+				DDC69EBB1D219A98000E8234 /* UIViewController+SecretList.swift */,
 				DD5A47721D1E606D00B5D8E7 /* APIManager.swift */,
 				DD86C8C11D1FB19600E555B8 /* LoginButton.swift */,
 				DD5A47541D1E4F5500B5D8E7 /* LoginViewController.swift */,
@@ -289,6 +292,7 @@
 			files = (
 				DD5A47551D1E4F5500B5D8E7 /* LoginViewController.swift in Sources */,
 				DD86C8C21D1FB19600E555B8 /* LoginButton.swift in Sources */,
+				DDC69EBC1D219A98000E8234 /* UIViewController+SecretList.swift in Sources */,
 				DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */,
 				DD8B0E151D1E756C0017DFB7 /* SecretListViewController.swift in Sources */,
 				DD5A47731D1E606D00B5D8E7 /* APIManager.swift in Sources */,
