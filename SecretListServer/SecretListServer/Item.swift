@@ -10,33 +10,29 @@ import Foundation
 
 class Item {
     var title: String
-    var createdAt: NSDate?
+    var createdAt: NSDate
     
-    init(title: String, createdAt: NSDate?) {
+    init(title: String, createdAt: NSDate) {
         self.title = title
         self.createdAt = createdAt
     }
-    
-    convenience init(json: [String: AnyObject]) {
-        self.init(title: "", createdAt: nil)
-        
-        title = json["title"] as! String
-        
-        if let createdAt = date(from: json["created_at"] as! String) {
-            self.createdAt = createdAt
-        } else {
-            createdAt = nil
-        }
+  
+    func toDict() -> [String : AnyObject] {
+        return [
+            "title": title,
+            "created_at" : NSDate().ISOString()
+        ]
     }
-    
-    private func date(from ISOString: String) -> NSDate? {
+}
+
+private extension NSDate {
+    func ISOString() -> String {
         struct Instance {
             static let formatter = NSDateFormatter()
         }
-        
         Instance.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         Instance.formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         Instance.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        return Instance.formatter.dateFromString(ISOString)
+        return Instance.formatter.stringFromDate(self)
     }
 }
