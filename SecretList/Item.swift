@@ -22,22 +22,20 @@ class Item {
         
         title = json["title"] as! String
         
-        if let createdAt = (json["created_at"] as! String).date() {
+        if let createdAt = date(from: json["created_at"] as! String) {
             self.createdAt = createdAt
         } else {
             createdAt = nil
         }
     }
-}
-
-private extension String {
-    func date() -> NSDate? {
+    
+    func date(from ISOString: String) -> NSDate? {
         struct Instance {
             static let formatter = NSDateFormatter()
         }
         Instance.formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         Instance.formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         Instance.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        return Instance.formatter.dateFromString(self)
+        return Instance.formatter.dateFromString(ISOString)
     }
 }
