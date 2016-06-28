@@ -18,6 +18,15 @@ class SecretListViewModel {
   
   init(view: SecretListViewType) {
     self.view = view
+    
+    //load once with cache
+    view.loadItemsIntent.subscribeWithCache { _ in
+      APIManager.sharedManager.allItems { [unowned self] items, error in
+        if error != nil { return }
+        self.items.value = items
+        self.title.value = self.titleForItems(items)
+      }
+    }
    
     view.addNewItemIntent.subscribe { [unowned self] newTitle in
       let newItem = Item(title: newTitle ?? "", createdAt: NSDate(), completed: false)
@@ -26,6 +35,8 @@ class SecretListViewModel {
       items.append(newItem)
       self.items.value = items
       self.title.value = self.titleForItems(items)
+      
+      APIManager.sharedManager.add(item: newItem) { _, _ in }
     }
     
     view.completeItemPositionIntent.subscribe { [unowned self] position in
