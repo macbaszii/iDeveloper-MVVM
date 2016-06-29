@@ -95,17 +95,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UoC-cL-7wb">
+                                <rect key="frame" x="290" y="174" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="yMg-IW-VUr" firstAttribute="top" secondItem="UoC-cL-7wb" secondAttribute="bottom" constant="19" id="2vp-ah-YYF"/>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ut-uD-nid"/>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IVs-41-Qde"/>
                             <constraint firstItem="yMg-IW-VUr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="dK1-zZ-mOe"/>
+                            <constraint firstItem="UoC-cL-7wb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="grA-85-jro"/>
                             <constraint firstItem="7bK-I6-KAp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="oI0-WH-afx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Secret List" id="MiU-UQ-LWW"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="UoC-cL-7wb" id="TLk-1u-vx9"/>
                         <outlet property="emailField" destination="yMg-IW-VUr" id="tTz-kg-bge"/>
                         <outlet property="loginButton" destination="7bK-I6-KAp" id="lQA-as-XJU"/>
                         <outlet property="passwordField" destination="s07-Xo-KX5" id="H3l-IE-PgH"/>
