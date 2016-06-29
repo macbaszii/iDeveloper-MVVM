@@ -8,11 +8,13 @@
 
 import Foundation
 
-class Item {
+class Item
+{
     var title: String
-    var createdAt: NSDate
+    var createdAt: Date
     
-    init(title: String,  createdAt: NSDate) {
+    init(title: String, createdAt: Date)
+    {
         self.title = title
         self.createdAt = createdAt
     }

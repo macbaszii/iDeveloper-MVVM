@@ -8,25 +8,27 @@
 
 import UIKit
 
-@IBDesignable class CredentialField: UITextField {
+@IBDesignable class CredentialField: UITextField
+{
     @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
-            layer.masksToBounds = cornerRadius > 0.0
-            layer.cornerRadius = cornerRadius
-        }
-    }
+            self.layer.masksToBounds = cornerRadius > 0.0
+            self.layer.cornerRadius = cornerRadius } }
     
-    @IBInspectable var placeholderColor: UIColor = UIColor.clearColor() {
+    @IBInspectable var placeholderColor: UIColor = .clear() {
         didSet {
-            attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0), NSForegroundColorAttributeName: placeholderColor])
-        }
+            self.attributedPlaceholder = AttributedString(
+                string: placeholder ?? "",
+                attributes: [ NSFontAttributeName: UIFont.systemFont(ofSize: 15.0),
+                              NSForegroundColorAttributeName: placeholderColor ]) } }
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect
+    {
+        return bounds.insetBy(dx: 10.0, dy: 0.0)
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectInset(bounds, 10, 0)
-    }
-    
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectInset(bounds, 10, 0)
+    override func editingRect(forBounds bounds: CGRect) -> CGRect
+    {
+        return bounds.insetBy(dx: 10.0, dy: 0.0)
     }
 }

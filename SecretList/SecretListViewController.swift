@@ -10,64 +10,87 @@ import UIKit
 
 private let ItemCellIdentifier = "ItemCell"
 
-class SecretListViewController: UIViewController {
+class SecretListViewController: UIViewController
+{
     @IBOutlet var tableView: UITableView!
     
-    var items = [Item]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+    var items: [Item] = [] {
+        didSet {
+            DispatchQueue.main.async() { [weak self] in
+                self?.tableView?.reloadData() } } }
+}
+
+extension SecretListViewController
+{
     // MARK: - Actions
-    @IBAction func addNewItem() {
+    
+    @IBAction func addNewItem()
+    {
         showAddNewItemAlert()
     }
 }
 
-// MARK: - UITableView Protocol Conformance
-extension SecretListViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension SecretListViewController: UITableViewDataSource
+{
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(ItemCellIdentifier, forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellIdentifier, for: indexPath)
         
         let item = items[indexPath.row]
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .ShortStyle
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .mediumStyle
+        dateFormatter.timeStyle = .shortStyle
         
         cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(item.createdAt)
+        cell.detailTextLabel?.text = dateFormatter.string(from: item.createdAt)
         
         return cell
     }
 }
 
-extension SecretListViewController {
-    // MARK: - Internal Methods
+extension SecretListViewController: UITableViewDelegate
+{
+    // MARK: - UITableViewDelegate
+}
+
+extension SecretListViewController
+{
+    // MARK: - Alert
     
-    private func showAddNewItemAlert() {
-        let alert = UIAlertController(title: "Add New Item", message: "What are you gonna do ?", preferredStyle: .Alert)
+    private func showAddNewItemAlert()
+    {
+        let alert = UIAlertController(
+            title: "Add New Item",
+            message: "What are you gonna do ?",
+            preferredStyle: .alert)
         
-        alert.addTextFieldWithConfigurationHandler { (textField) in
-            textField.placeholder = "Title here..."
-        }
+        alert.addTextField { $0.placeholder = "Title here..." }
         
-        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) in
-            
-            if let field = alert.textFields?.first {
-                let item = Item(title: field.text ?? "", createdAt: NSDate())
-                self.items.append(item)
-                self.tableView.reloadData()
-            }
-        }))
+        let addAlertAction = UIAlertAction(
+            title: "Add",
+            style: .default) { _ in
+                _ = alert.textFields?
+                    .first
+                    .map() { Item(title: $0.text ?? "", createdAt: Date()) }
+                    .map() { self.items.append($0) } }
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        alert.addAction(addAlertAction)
         
-        presentViewController(alert, animated: true, completion: nil)
+        let cancelAlertAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil)
+        
+        alert.addAction(cancelAlertAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  SecretList
 //
 //  Created by Kiattisak Anoochitarom on 6/25/2559 BE.
@@ -10,74 +10,98 @@ import UIKit
 
 private let SecretListSegueIdentifier = "SecretListSegue"
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController
+{
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var loginButton: UIButton!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
         setupView()
     }
 }
 
-extension LoginViewController {
-    // MARK: - Actions
+extension LoginViewController
+{
+    // MARK: - Configuration
     
-    @IBAction func fieldDidChange(field: UITextField) {
-        enableLoginButton(isValidFields())
-    }
-    
-    @IBAction func login() {
-        APIManager.sharedManager.login(with: emailField.text!,
-                                       and: passwordField.text!) { (token, error) in
-                                        
-                                        if let error = error {
-                                            self.showAlertWithError(error)
-                                        } else {
-                                            self.performSegueWithIdentifier(SecretListSegueIdentifier, sender: nil)
-                                        }
-        }
-    }
-    
-    // MARK: - Internal Methods
-    
-    private func isValidFields() -> Bool {
-        return emailField.text?.isValidEmail() == true &&
-                passwordField.text?.isValidPassword() == true
-    }
-    
-    private func enableLoginButton(enabled: Bool) {
-        loginButton.enabled = enabled ? true : false
-        loginButton.alpha = enabled ? 1.0 : 0.5
-    }
-    
-    private func setupView() {
+    private func setupView()
+    {
         enableLoginButton(false)
     }
     
-    private func showAlertWithError(error: NSError) {
-        let alert = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+    private func enableLoginButton(_ enabled: Bool)
+    {
+        loginButton?.isEnabled = enabled ? true : false
+        loginButton?.alpha = enabled ? 1.0 : 0.5
+    }
+}
+
+extension LoginViewController
+{
+    // MARK: - Validation
+    
+    private var isValidFields: Bool { return emailField?.text?.isValidEmail == true && passwordField?.text?.isValidPassword == true }
+}
+
+extension LoginViewController
+{
+    // MARK: - Alert
+    
+    private func showAlertWithError(_ error: NSError)
+    {
+        let alert = UIAlertController(
+            title: "Error!",
+            message: error.localizedDescription,
+            preferredStyle: .alert)
         
-        presentViewController(alert, animated: true, completion: nil)
+        let okAlertAction = UIAlertAction(
+            title: "Ok",
+            style: .default,
+            handler: nil)
+        
+        alert.addAction(okAlertAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension LoginViewController
+{
+    // MARK: - Actions
+    
+    @IBAction func fieldDidChange(_ field: UITextField)
+    {
+        enableLoginButton(isValidFields)
+    }
+    
+    @IBAction func login()
+    {
+        APIManager.sharedManager
+            .login(with: emailField?.text ?? "",
+                   and: passwordField?.text ?? "") { [weak self] (token, error) in
+                    
+                    if let error = error
+                    {
+                        self?.showAlertWithError(error)
+                    }
+                    else
+                    {
+                        self?.performSegue(withIdentifier: SecretListSegueIdentifier, sender: nil)
+                    }
+        }
     }
 }
 
 private let EmailRegularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
 private let MinimumPasswordCharacters = 6
 
-private extension String {
-    func isValidEmail() -> Bool {
-        if let _ = self.rangeOfString(EmailRegularExpression, options: .RegularExpressionSearch) {
-            return true
-        }
-        
-        return false
-    }
-    
-    func isValidPassword() -> Bool {
-        return self.characters.count >= MinimumPasswordCharacters
-    }
+private extension String
+{
+    var isValidEmail: Bool { return self.range(of: EmailRegularExpression, options: .regularExpressionSearch).map() { _ in true } ?? false }
+    var isValidPassword: Bool { return self.characters.count >= MinimumPasswordCharacters }
 }
 
