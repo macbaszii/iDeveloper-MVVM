@@ -14,6 +14,19 @@ class LoginViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    
+    var isNetworkInProgress = false {
+        didSet {
+            if isNetworkInProgress {
+                enableLoginButton(false)
+                activityIndicatorView.startAnimating()
+            } else {
+                enableLoginButton(true)
+                activityIndicatorView.stopAnimating()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +42,10 @@ extension LoginViewController {
     }
     
     @IBAction func login() {
+        isNetworkInProgress = true
         APIManager.sharedManager.login(with: emailField.text!,
                                        and: passwordField.text!) { (token, error) in
+                                        self.isNetworkInProgress = false
                                         
                                         if let error = error {
                                             self.showAlert(with: error)
@@ -54,6 +69,7 @@ extension LoginViewController {
     
     private func setupView() {
         enableLoginButton(false)
+        activityIndicatorView.hidesWhenStopped = true
     }    
 }
 
