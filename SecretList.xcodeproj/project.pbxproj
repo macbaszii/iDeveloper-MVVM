@@ -13,6 +13,7 @@
 		47AF92C71D23D8B000D4EE71 /* SecretListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF92BE1D23D8B000D4EE71 /* SecretListViewController.swift */; };
 		47AF92C81D23D8B000D4EE71 /* CredentialField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF92C21D23D8B000D4EE71 /* CredentialField.swift */; };
 		47AF92C91D23D8B000D4EE71 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF92C31D23D8B000D4EE71 /* LoginButton.swift */; };
+		47AF92CB1D23D96D00D4EE71 /* EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AF92CA1D23D96D00D4EE71 /* EditListViewController.swift */; };
 		DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5A47521D1E4F5500B5D8E7 /* AppDelegate.swift */; };
 		DD5A47581D1E4F5500B5D8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD5A47561D1E4F5500B5D8E7 /* Main.storyboard */; };
 		DD5A475A1D1E4F5500B5D8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5A47591D1E4F5500B5D8E7 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		47AF92BE1D23D8B000D4EE71 /* SecretListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretListViewController.swift; sourceTree = "<group>"; };
 		47AF92C21D23D8B000D4EE71 /* CredentialField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialField.swift; sourceTree = "<group>"; };
 		47AF92C31D23D8B000D4EE71 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		47AF92CA1D23D96D00D4EE71 /* EditListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditListViewController.swift; sourceTree = "<group>"; };
 		67AFD6BBFBD2B672D5BB324B /* Pods-SecretList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.debug.xcconfig"; sourceTree = "<group>"; };
 		BD44441BD53CE6A78117EC95 /* Pods-SecretList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretList.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecretList/Pods-SecretList.release.xcconfig"; sourceTree = "<group>"; };
 		DD5A474F1D1E4F5500B5D8E7 /* SecretList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 		47AF92BC1D23D8B000D4EE71 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				47AF92CA1D23D96D00D4EE71 /* EditListViewController.swift */,
 				47AF92BD1D23D8B000D4EE71 /* LoginViewController.swift */,
 				47AF92BE1D23D8B000D4EE71 /* SecretListViewController.swift */,
 			);
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AF92CB1D23D96D00D4EE71 /* EditListViewController.swift in Sources */,
 				DD5A47531D1E4F5500B5D8E7 /* AppDelegate.swift in Sources */,
 				47AF92C51D23D8B000D4EE71 /* APIManager.swift in Sources */,
 				47AF92C41D23D8B000D4EE71 /* Item.swift in Sources */,

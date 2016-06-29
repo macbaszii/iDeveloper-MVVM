@@ -151,6 +151,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JaU-ih-v3Z" kind="show" identifier="EditListSegue" id="2oy-l3-m4J"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -182,6 +185,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xye-LP-s4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1964" y="282"/>
+        </scene>
+        <!--Edit List View Controller-->
+        <scene sceneID="sBA-eg-N5L">
+            <objects>
+                <viewController id="JaU-ih-v3Z" customClass="EditListViewController" customModule="SecretList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Efs-Ff-GR4"/>
+                        <viewControllerLayoutGuide type="bottom" id="jNl-f7-MCX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z8u-ag-04b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxN-le-jM2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-qv-kgM">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="fieldDidChange:" destination="JaU-ih-v3Z" eventType="editingChanged" id="kNA-Pa-2n4"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l6g-qv-kgM" firstAttribute="top" secondItem="Efs-Ff-GR4" secondAttribute="bottom" constant="44" id="3MA-y2-ymz"/>
+                            <constraint firstItem="DxN-le-jM2" firstAttribute="leading" secondItem="Z8u-ag-04b" secondAttribute="leadingMargin" id="FPM-8x-LFY"/>
+                            <constraint firstItem="l6g-qv-kgM" firstAttribute="leading" secondItem="DxN-le-jM2" secondAttribute="trailing" constant="18" id="QyE-fR-qqT"/>
+                            <constraint firstItem="DxN-le-jM2" firstAttribute="centerY" secondItem="l6g-qv-kgM" secondAttribute="centerY" id="uGL-bx-9SI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l6g-qv-kgM" secondAttribute="trailing" id="vZw-fO-zqh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NM4-Cf-f14">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="73e-rd-DPz">
+                            <connections>
+                                <action selector="save" destination="JaU-ih-v3Z" id="Shq-Is-gMo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveBarButtonItem" destination="73e-rd-DPz" id="zfE-0Y-EBc"/>
+                        <outlet property="textField" destination="l6g-qv-kgM" id="5tT-mf-D2T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7XI-vE-dm3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2793" y="281"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hOf-Lg-ZXK">
