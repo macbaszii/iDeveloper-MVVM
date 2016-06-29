@@ -13,6 +13,7 @@ protocol SecretListViewType: class {
   //intent
   var addNewItemIntent: Flow<String> { get }
   var completeItemPositionIntent: Flow<Int> { get }
+  var loadItemsIntent: Flow<Void> { get }
   
 }
 

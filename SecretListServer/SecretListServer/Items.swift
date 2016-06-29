@@ -10,11 +10,11 @@ import Foundation
 import Swifter
 
 var items = [
-    Item(title: "Buy Milk", createdAt: NSDate()),
-    Item(title: "Sing Karaoke", createdAt: NSDate()),
-    Item(title: "Test drive", createdAt: NSDate()),
-    Item(title: "Visit mom", createdAt: NSDate()),
-    Item(title: "Bake a cake", createdAt: NSDate()),
+    Item(title: "Buy Milk", createdAt: NSDate(), completed: true),
+    Item(title: "Sing Karaoke", createdAt: NSDate(), completed: false),
+    Item(title: "Test drive", createdAt: NSDate(), completed: false),
+    Item(title: "Visit mom", createdAt: NSDate(), completed: true),
+    Item(title: "Bake a cake", createdAt: NSDate(), completed: false),
 ]
 
 func allItems(server: HttpServer) {
@@ -29,7 +29,7 @@ func addItem(server: HttpServer) {
         let params = paramsObject(with: request)
         guard let title = params["title"] else { return .BadRequest(.Json(error(with: "Title can't be blank"))) }
         
-        let newItem = Item(title: title, createdAt: NSDate())
+        let newItem = Item(title: title, createdAt: NSDate(), completed: false)
         items.append(newItem)
         return .OK(.Json(newItem.toDict()))
     }

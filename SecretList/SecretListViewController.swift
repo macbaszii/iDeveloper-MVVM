@@ -16,6 +16,7 @@ class SecretListViewController : UIViewController {
 
   let addNewItemIntent = Flow<String>()
   let completeItemPositionIntent = Flow<Int>()
+  let loadItemsIntent = Flow<Void>()
   
   var viewModel: SecretListViewModelType!
 
@@ -24,16 +25,12 @@ class SecretListViewController : UIViewController {
 
     viewModel = SecretListViewModel(view: self)
 
-    override func viewDidLoad() {
-      super.viewDidLoad()
+    viewModel.items.subscribe { [unowned self] _ in
+      self.tableView.reloadData()
+    }
 
-      viewModel.items.subscribe { [unowned self] _ in
-        self.tableView.reloadData()
-      }
-
-      viewModel.title.subscribeWithCache { [unowned self] title in
-        self.title = title
-      }
+    viewModel.title.subscribeWithCache { [unowned self] title in
+      self.title = title
     }
   }
 
