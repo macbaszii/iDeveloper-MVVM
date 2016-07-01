@@ -34,6 +34,7 @@ class LoginViewController : UIViewController {
     viewModel.isCredentialValid.subscribeWithCache { [unowned self] enabled in
       guard let enabled = enabled else { return }
       self.loginButton.enabled = enabled
+      self.loginButton.alpha = enabled ? 1.0 : 0.5
     }
 
     viewModel.isNetworkInProgress.subscribe { [unowned self] inProgress in
