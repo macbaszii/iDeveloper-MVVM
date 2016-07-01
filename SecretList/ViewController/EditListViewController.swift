@@ -14,6 +14,8 @@ class EditListViewController: UIViewController
     
     @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     
+    private var observerToken: NSObjectProtocol?
+    
     weak var item: Item? {
         didSet {
             textField?.text = item?.title
@@ -26,6 +28,30 @@ class EditListViewController: UIViewController
         textField?.text = item?.title
         saveBarButtonItem?.isEnabled = (changed && valid)
     }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        observerToken = NotificationCenter
+            .default()
+            .addObserver(
+                forName: NSNotification.Name.UITextFieldTextDidChange,
+                object: nil,
+                queue: nil) { _ in
+                    self.saveBarButtonItem?.isEnabled = (self.changed && self.valid) }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        if let observerToken = observerToken
+        {
+            NotificationCenter.default().removeObserver(observerToken)
+            self.observerToken = nil
+        }
+    }
 }
 
 extension EditListViewController
@@ -36,15 +62,24 @@ extension EditListViewController
     private var valid: Bool { return textField?.text?.characters.count > 0 }
 }
 
+extension EditListViewController
+{
+    // MARK: - Notification
+    
+    @objc private func textFieldTextDidChange(notification: Notification)
+    {
+        saveBarButtonItem?.isEnabled = (changed && valid)
+    }
+}
 
 extension EditListViewController
 {
     // MARK: - Actions
     
-    @IBAction func fieldDidChange(_ field: UITextField)
-    {
-        saveBarButtonItem?.isEnabled = (changed && valid)
-    }
+//    @IBAction func fieldDidChange(_ field: UITextField)
+//    {
+//        saveBarButtonItem?.isEnabled = (changed && valid)
+//    }
     
     @IBAction func save()
     {
