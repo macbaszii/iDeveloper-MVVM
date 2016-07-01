@@ -32,7 +32,7 @@ class APIManager
             request.allHTTPHeaderFields = headers
             
             session
-                .dataTask(with: request) { (data, response, error) in
+                .dataTask(with: request) { (data, _, error) in
                     let accessToken = data
                         .flatMap() { try? JSONSerialization.jsonObject(with: $0, options: []) }
                         .flatMap() { $0 as? [String: String] }

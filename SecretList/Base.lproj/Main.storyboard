@@ -95,9 +95,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LLy-UR-XlA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ut-uD-nid"/>
                             <constraint firstItem="LLy-UR-XlA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IVs-41-Qde"/>
                             <constraint firstItem="yMg-IW-VUr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="dK1-zZ-mOe"/>
+                            <constraint firstItem="LLy-UR-XlA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lSx-Iw-zVv"/>
                             <constraint firstItem="7bK-I6-KAp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="oI0-WH-afx"/>
                         </constraints>
                     </view>
@@ -132,7 +132,7 @@
                                         <frame key="frameInset" minY="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tnc-TF-VUW" id="0Ys-mu-JLc">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xsr-Hc-ml2">
@@ -206,9 +206,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-qv-kgM">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="fieldDidChange:" destination="JaU-ih-v3Z" eventType="editingChanged" id="kNA-Pa-2n4"/>
-                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XI-vE-dm3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2793" y="281"/>
+            <point key="canvasLocation" x="2718" y="281"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hOf-Lg-ZXK">
