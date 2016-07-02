@@ -18,8 +18,9 @@ class SecretListSpec : QuickSpec {
     var vm: SecretListViewModelType!
     
     class SecretListView : SecretListViewType {
-      var addNewItemIntent = Flow<String>()
-      var completeItemPositionIntent = Flow<Int>()
+      let addNewItemIntent = Flow<String>()
+      let completeItemPositionIntent = Flow<Int>()
+      let loadItemsIntent = Flow<Void>()
     }
     
     beforeEach {
